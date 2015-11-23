@@ -142,7 +142,11 @@ public class VirtualTopicInterceptor extends DestinationFilter {
     }
 
     protected boolean shouldDispatch(Broker broker, Message message, Destination dest) throws IOException {
-        return true;
+    	String destname = dest.getName();
+    	String thisPrefix = prefix;
+    	
+    	//return dest.getName().startsWith(prefix.substring(0,prefix.indexOf(".*")));
+    	return true;
     }
 
     protected ActiveMQDestination getQueueConsumersWildcard(ActiveMQDestination original) {
